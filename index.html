@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Road Safety Monitoring System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="#home" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+        </svg>
+        RoadSafety AI
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-item">Home</a></li>
+        <li><a href="#domain" class="nav-item">Domain</a></li>
+        <li><a href="#milestones" class="nav-item">Milestones</a></li>
+        <li><a href="#documents" class="nav-item">Documents</a></li>
+        <li><a href="#presentations" class="nav-item">Presentations</a></li>
+        <li><a href="#about" class="nav-item">About Us</a></li>
+        <li><a href="#contact" class="nav-item">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="scroll-section" style="padding-top: 6rem; margin-top: -6rem;">
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Real-Time<br><span style="color: var(--primary)">Road Safety Monitoring</span> System</h1>
+          <p>A comprehensive AI-Driven Multi-Agent System designed to monitor traffic rule violations, detect road
+            hazards, analyze driver behavior, and perform risk analysis in real-time. Created for Sri Lankan road
+            conditions without the need for expensive LiDAR sensors.</p>
+          <a href="#domain" class="btn">Explore the Domain</a>
+        </div>
+        <div class="hero-image">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="auto"
+            style="border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
+            <rect width="800" height="600" fill="#e2e8f0" />
+            <circle cx="400" cy="300" r="150" fill="#2563eb" opacity="0.1" />
+            <circle cx="400" cy="300" r="100" fill="#2563eb" opacity="0.2" />
+            <path d="M350 250 L450 250 L400 350 Z" fill="#2563eb" />
+            <text x="400" y="400" font-family="Inter, sans-serif" font-size="24" text-anchor="middle" fill="#64748b">AI
+              Road Sensing Concept</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <div style="height: 2px; background: var(--border-color); margin: 4rem 0;"></div>
+
+    <section id="domain" class="scroll-section" style="padding-top: 6rem; margin-top: -4rem;">
+      <h2 class="section-title">Domain Overview</h2>
+
+      <div class="card">
+        <h3>Literature Survey & Research Gap</h3>
+        <p>Current navigation systems depend mainly on manual hazard reporting, which is slow and unreliable.
+          Furthermore, existing advanced driver-assistance systems (ADAS) rely on expensive sensors, like LiDAR, making
+          them inaccessible for widespread application. Most existing vision-based systems focus solely on object
+          detection and fail to ascertain exactly which situations require immediate driver attention. Furthermore,
+          existing models are mostly trained on datasets representing right-hand traffic highways with clear markings,
+          and simulators fail to perform well in real-world scenarios ("Sim-to-Real" gap).</p>
+      </div>
+
+      <div class="card">
+        <h3>Research Problem</h3>
+        <p>How can we develop a highly reliable, low-cost AI-driven safety monitoring system that leverages real-time
+          video feedback to accurately infer dynamic road hazards (potholes, rule violations, anomalies) without
+          depending on GPS or expensive LiDAR sensors, specifically adapted to challenging environments such as Sri
+          Lankan rural roads?</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Research Objectives</h3>
+          <ul>
+            <li>• Develop a unified hazard detection (potholes, traffic signs).</li>
+            <li>• Conduct image-space risk analysis & anomaly detection.</li>
+            <li>• Detect road rule violations (lane tracking + speed estimation).</li>
+            <li>• Monitor driver alignment and simulate kinematics effectively on edge devices.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Proposed Methodology</h3>
+          <ul>
+            <li>• <strong>Pothole Validation:</strong> Applying Kalman filter temporal validation.</li>
+            <li>• <strong>Hazard Risk Reasoning:</strong> Evaluating YOLOv5, YOLOv7, and YOLOv8 architectures.</li>
+            <li>• <strong>Violation Detection:</strong> U-Net for lanes and Optical Flow for Speed.</li>
+            <li>• <strong>Behavior Simulation:</strong> Late-fusion hybrid architecture, trained partially via CARLA
+              simulator.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Technologies Used</h3>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+          <span class="tech-icon-pill">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+            YOLOv8
+          </span>
+          <span class="tech-icon-pill">
+            <svg viewBox="0 0 24 24">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            U-Net
+          </span>
+          <span class="tech-icon-pill">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+              <polyline points="17 2 12 7 7 2"></polyline>
+            </svg>
+            CARLA Simulator
+          </span>
+          <span class="tech-icon-pill">
+            <svg viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+            Kalman Filters & Optical Flow
+          </span>
+          <span class="tech-icon-pill">
+            <svg viewBox="0 0 24 24">
+              <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line>
+              <line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line>
+              <line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line>
+              <line x1="20" y1="14" x2="23" y2="14"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line>
+              <line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
+            Edge CPUs & ONNX
+          </span>
+          <span class="tech-icon-pill">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 12h4l3-9 5 18 3-9h5"></path>
+            </svg>
+            Machine Learning & CV
+          </span>
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 4rem;">System Results & Data Flow</h2>
+
+      <div class="data-flow-container">
+        <div class="flow-node">
+          <svg viewBox="0 0 24 24">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <h4>Raw Sensors</h4>
+          <p>Camera & IMU Input</p>
+        </div>
+        <div class="flow-arrow">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="flow-node">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+          </svg>
+          <h4>Perception Layer</h4>
+          <p>YOLOv8 & U-Net On Edge</p>
+        </div>
+        <div class="flow-arrow">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="flow-node">
+          <svg viewBox="0 0 24 24">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          <h4>AI + Physics Fusion</h4>
+          <p>Kinematic Filtering</p>
+        </div>
+        <div class="flow-arrow">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+        <div class="flow-node">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+          <h4>Violation Logging</h4>
+          <p>Risk Alerts & Evidence</p>
+        </div>
+      </div>
+
+      <div class="component-section">
+        <h3>1. Real-Time Pothole and Road Sign Detection</h3>
+        <p><strong>Dataset:</strong> Custom localized Sri Lankan road condition dataset alongside benchmark public
+          datasets (e.g., RDD2020). This module demonstrates strong real-time performance on edge hardware. The
+          multi-layer detection pipeline significantly improves accuracy by reducing geometric and classification
+          errors.</p>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Performance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>YOLOv8 Detection Accuracy</td>
+                <td>82.0% mAP</td>
+              </tr>
+              <tr>
+                <td>Enhanced Detection (with filtering + OCR)</td>
+                <td>94.2%</td>
+              </tr>
+              <tr>
+                <td>Lane Detection (U-Net)</td>
+                <td>99.1% Accuracy</td>
+              </tr>
+              <tr>
+                <td>Speed Estimation</td>
+                <td>±10% Error</td>
+              </tr>
+              <tr>
+                <td>Processing Speed</td>
+                <td><span class="badge">15–30 FPS</span> (Edge Device)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="component-section">
+        <h3>2. Risk Analysis, Road Hazard & Anomaly Detection</h3>
+        <p><strong>Dataset:</strong> Augmented custom hazard dataset covering sunny, rainy, and night conditions. This
+          module uses physics-constrained filtering to eliminate spurious detections caused by sensor noise and
+          environmental disturbances. It ensures only physically valid hazards are considered.</p>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Observation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Noise Robustness</td>
+                <td>High</td>
+              </tr>
+              <tr>
+                <td>False Positive Reduction</td>
+                <td>Significant</td>
+              </tr>
+              <tr>
+                <td>Anomaly Filtering</td>
+                <td>Physics-based validation</td>
+              </tr>
+              <tr>
+                <td>Reliability</td>
+                <td>Improved under noisy conditions</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="component-section">
+        <h3>3. Road Rule Violation Detection</h3>
+        <p><strong>System Flow:</strong> A continuous real-time execution flow integrating sign detection, U-Net lane
+          detection, and optical flow. The system detects violations such as overspeeding and lane deviation using
+          integrated perception modules without GPS reliance. Events are logged with evidence for audit and analysis.
+        </p>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Detection Accuracy</td>
+                <td>94.2%</td>
+              </tr>
+              <tr>
+                <td>Violation Logging</td>
+                <td>Real-time SQLite logging</td>
+              </tr>
+              <tr>
+                <td>Speed Compliance Detection</td>
+                <td>±10% accuracy</td>
+              </tr>
+              <tr>
+                <td>Lane Violation Detection</td>
+                <td>99.1% segmentation support</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="component-section">
+        <h3>4. Driving Behavior & Alignment Monitoring</h3>
+        <p><strong>Dataset & Flow:</strong> Dual-source approach utilizing a 14-Hour digital twin simulation (CARLA)
+          mapped to real-world IMU data. Hybrid architecture routes outputs via an Ensemble AI Filter and Kinematic
+          Physics Layer. The model improves classification reliability and reduces hallucinations. The system achieves
+          high precision while maintaining real-time edge inference capability.</p>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Macro F1 Score</td>
+                <td>0.7224</td>
+              </tr>
+              <tr>
+                <td>Macro Precision</td>
+                <td>0.8165</td>
+              </tr>
+              <tr>
+                <td>Calibration Error (ECE)</td>
+                <td>0.041</td>
+              </tr>
+              <tr>
+                <td>Brier Score</td>
+                <td>0.024</td>
+              </tr>
+              <tr>
+                <td>Inference Latency</td>
+                <td><span class="badge">0.06 ms</span></td>
+              </tr>
+              <tr>
+                <td>External Validation Precision</td>
+                <td>93%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="component-section"
+        style="background-color: var(--secondary); padding: 3rem; border-left: 4px solid var(--primary);">
+        <h3 style="color: white; margin-bottom: 2rem;">Key System Insights</h3>
+        <ul class="insights-list">
+          <li style="color: #cbd5e1;">Physics-guided fusion reduces false positives significantly</li>
+          <li style="color: #cbd5e1;">Soft fusion (α = 0.1) outperforms rigid rule-based systems</li>
+          <li style="color: #cbd5e1;">Edge deployment is feasible with low latency</li>
+          <li style="color: #cbd5e1;">System prioritizes precision over recall for safety-critical use</li>
+        </ul>
+      </div>
+    </section>
+
+    <div style="height: 2px; background: var(--border-color); margin: 4rem 0;"></div>
+
+    <section id="milestones" class="scroll-section" style="padding-top: 6rem; margin-top: -6rem;">
+
+      <h2 class="section-title" style="margin-top: 0;">Project Milestones</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="card">
+            <h3>Project Proposal</h3>
+            <p>The initial submission defining the project's scope, objectives, technical feasibility, and basic
+              timeline. We presented the core problem our system aims to solve and the high-level architecture.</p>
+            <div class="milestone-meta">
+              <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">Feb 15, 2026</span>
+              </div>
+              <div class="meta-item"><span class="meta-label">Marks Allocated</span><span class="meta-value">10%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="card">
+            <h3>Progress Presentation - 1</h3>
+            <p>This presentation covered the literature review, finalization of methodology, and the first working
+              prototype of our hardware sensors collecting environmental data.</p>
+            <div class="milestone-meta">
+              <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">April 10, 2026</span>
+              </div>
+              <div class="meta-item"><span class="meta-label">Marks Allocated</span><span class="meta-value">15%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="card">
+            <h3>Progress Presentation - 2</h3>
+            <p>A detailed demonstration of the backend system integration, machine learning algorithms, and preliminary
+              data analysis from field deployments.</p>
+            <div class="milestone-meta">
+              <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">July 05, 2026</span>
+              </div>
+              <div class="meta-item"><span class="meta-label">Marks Allocated</span><span class="meta-value">20%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="card">
+            <h3>Final Assessment</h3>
+            <p>The final showcase covering the deeply integrated hardware and software solution, extensive testing
+              results, UI/UX demo for users, and submission of the Final Thesis document.</p>
+            <div class="milestone-meta">
+              <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">October 20,
+                  2026</span></div>
+              <div class="meta-item"><span class="meta-label">Marks Allocated</span><span class="meta-value">40%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="card">
+            <h3>Viva</h3>
+            <p>The viva voce entails a thorough examination of each individual team member's contributions, deep
+              understanding of the domain, technical questions, and rigorous code evaluation.</p>
+            <div class="milestone-meta">
+              <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">November 10,
+                  2026</span></div>
+              <div class="meta-item"><span class="meta-label">Marks Allocated</span><span class="meta-value">15%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div style="height: 2px; background: var(--border-color); margin: 4rem 0;"></div>
+
+    <section id="documents" class="scroll-section" style="padding-top: 6rem; margin-top: -6rem;">
+      <h2 class="section-title">Project Documents</h2>
+
+      <div class="file-list" style="max-width: 800px; margin: 0 auto;">
+        <a href="Charter.pdf" target="_blank" class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Project Charter
+          </div>
+          <span class="btn btn-sm">Download PDF</span>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1iHgBjR9XjcXx4Dhkuc6hIuE6fJlgnVmM/view?usp=sharing" target="_blank"
+          class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Proposal Document
+          </div>
+          <span class="btn btn-sm">Download PDF</span>
+        </a>
+
+        <a href="Checklist.pdf" target="_blank" class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            Check List Document
+          </div>
+          <span class="btn btn-sm">Download PDF</span>
+        </a>
+
+        <a href="Proposal_Report_Harisanth%20Vimalaraja(IT22627278)%20(1).pdf" target="_blank" class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Individual report - Harisanth V IT22627278
+          </div>
+          <span class="btn btn-sm">Download PDF</span>
+        </a>
+        <a href="Proposal%20Report-Mithuran%20Thurairatnam%20(IT22311740).pdf" target="_blank" class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Individual report - Mithuran T IT22311740
+          </div>
+          <span class="btn btn-sm">Download PDF</span>
+        </a>
+        <a href="Proposal%20Report-Piranes%20Muralitharan(IT22307958).pdf" target="_blank" class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Individual report - Piranes M IT22307958
+          </div>
+          <span class="btn btn-sm">Download PDF</span>
+        </a>
+        <a href="Proposal-report-Piranavan%20Sathiyavannan%20(it22224620).pdf" target="_blank" class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Individual report - Piranavan S IT22224620
+          </div>
+          <span class="btn btn-sm">Download PDF</span>
+        </a>
+        <a href="#" class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Final Document
+          </div>
+          <span class="btn btn-sm" style="background-color: var(--text-muted);">Pending</span>
+        </a>
+      </div>
+    </section>
+
+    <div style="height: 2px; background: var(--border-color); margin: 4rem 0;"></div>
+
+    <section id="presentations" class="scroll-section" style="padding-top: 6rem; margin-top: -6rem;">
+      <h2 class="section-title">Past Presentations</h2>
+
+      <div class="file-list" style="max-width: 800px; margin: 0 auto;">
+        <a href="https://docs.google.com/presentation/d/1QWQSEVScred2iKxVOTtFN__Nv6sONMlR9PQZYHxncYM/edit?usp=sharing"
+          class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <path d="M2 15h10"></path>
+              <path d="M9 18l3-3-3-3"></path>
+            </svg>
+            Proposal Presentation Slides
+          </div>
+          <span class="btn btn-sm">View Slides</span>
+        </a>
+
+        <a href="https://docs.google.com/presentation/d/18m6CpNlDJEM4EvBqKGZo_rDDwBMklngcHk_is7TMslA/edit?usp=sharing"
+          class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <path d="M2 15h10"></path>
+              <path d="M9 18l3-3-3-3"></path>
+            </svg>
+            Progress Presentation - 1 Slides
+          </div>
+          <span class="btn btn-sm">View Slides</span>
+        </a>
+
+        <a href="https://docs.google.com/presentation/d/1QWQSEVScred2iKxVOTtFN__Nv6sONMlR9PQZYHxncYM/edit?usp=sharing"
+          class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <path d="M2 15h10"></path>
+              <path d="M9 18l3-3-3-3"></path>
+            </svg>
+            Progress Presentation - 2 Slides
+          </div>
+          <span class="btn btn-sm">View Slides</span>
+        </a>
+
+        <a href="#" class="file-link">
+          <div class="icon-name">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <path d="M2 15h10"></path>
+              <path d="M9 18l3-3-3-3"></path>
+            </svg>
+            Final Presentation Slides
+          </div>
+          <span class="btn btn-sm" style="background-color: var(--text-muted);">Upcoming</span>
+        </a>
+      </div>
+    </section>
+
+    <div style="height: 2px; background: var(--border-color); margin: 4rem 0;"></div>
+
+    <section id="about" class="scroll-section" style="padding-top: 6rem; margin-top: -6rem;">
+      <h2 class="section-title">Meet Our Team</h2>
+      <p style="text-align: center; margin-bottom: 3rem; color: var(--text-muted);">
+        Project ID: 25-26J-149 | Information Technology Specialized in Data Science
+      </p>
+
+      <div class="grid"
+        style="margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; gap: 2rem; margin-bottom: 4rem;">
+        <div class="card team-member">
+          <img src="lakminid-1627632446.jpg" alt="Lakmini Abeywardhana"
+            style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--bg-color); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin: 0 auto 1rem auto; object-fit: cover;">
+          <h4 style="font-size: 1.125rem;">Lakmini Abeywardhana</h4>
+          <p style="color: var(--primary); font-weight: 500; margin-bottom: 1rem;">Supervisor</p>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem; padding: 0 1rem;">
+            Guiding the research process and conceptual foundation for the Road Safety AI model deployments.
+          </p>
+          <a href="mailto:lakmini.d@sliit.lk" class="btn btn-sm">Email Lakmini</a>
+        </div>
+
+        <div class="card team-member">
+          <img src="3. Kanagasabai Thiruthanigesan.jpg" alt="Kanagasabai Thiruthanigesan"
+            style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--bg-color); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin: 0 auto 1rem auto; object-fit: cover;">
+          <h4 style="font-size: 1.125rem;">Kanagasabai Thiruthanigesan</h4>
+          <p style="color: var(--primary); font-weight: 500; margin-bottom: 1rem;">Co-Supervisor</p>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem; padding: 0 1rem;">
+            Providing technical mentorship on AI-Driven Multi-Agent Systems and Edge logic validation.
+          </p>
+          <a href="mailto:thiruthanigesan.k@sliit.lk" class="btn btn-sm">Email Kanagasabai</a>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card team-member">
+          <img src="harisanth.png" alt="Harisanth V"
+            style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--bg-color); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-bottom: 1rem; object-fit: cover;">
+          <h3>Harisanth V</h3>
+          <p style="color: var(--primary); font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9rem;">Real-Time
+            Pothole and Road Sign Detection System</p>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem;">ID: IT22627278</p>
+          <p style="font-size: 0.875rem; color: var(--text-main); margin-bottom: 1rem; text-align: left;">
+            <strong>About My Component:</strong> Addressing false positives caused by shadows using kalman filtering,
+            integrating pothole severity classification, mapping detections with GPS metadata, and building localized
+            Sri Lankan road datasets.
+          </p>
+          <a href="mailto:it22627278@my.sliit.lk" class="btn btn-sm">Contact Harisanth</a>
+        </div>
+
+        <div class="card team-member">
+          <img src="mithuran.png" alt="Mithuran T"
+            style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--bg-color); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-bottom: 1rem; object-fit: cover;">
+          <h3>Mithuran T</h3>
+          <p style="color: var(--primary); font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9rem;">Risk Analysis,
+            Road Hazard & Anomaly Detection</p>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem;">ID: IT22311740</p>
+          <p style="font-size: 0.875rem; color: var(--text-main); margin-bottom: 1rem; text-align: left;">
+            <strong>About My Component:</strong> Shifting focus from basic object detection to risk-aware hazard
+            reasoning. Implemented road free-space violation detection, image-space risk estimation, and YOLOv8n
+            lightweight edge deployment for true ADAS reasoning.
+          </p>
+          <a href="mailto:it22311740@my.sliit.lk" class="btn btn-sm">Contact Mithuran</a>
+        </div>
+
+        <div class="card team-member">
+          <img src="piranes.png" alt="Piranes M"
+            style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--bg-color); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-bottom: 1rem; object-fit: cover;">
+          <h3>Piranes M</h3>
+          <p style="color: var(--primary); font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9rem;">Road Rule
+            Violation Detection</p>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem;">ID: IT22307958</p>
+          <p style="font-size: 0.875rem; color: var(--text-main); margin-bottom: 1rem; text-align: left;">
+            <strong>About My Component:</strong> Built custom U-Net Lane Detection for Sri Lankan markings and Non-GPS
+            Optical Flow Speed Estimation. Integrated these into a complete, real-time edge processing violation
+            pipeline avoiding traditional heavy GPU hardware.
+          </p>
+          <a href="mailto:it22307958@my.sliit.lk" class="btn btn-sm">Contact Piranes</a>
+        </div>
+
+        <div class="card team-member">
+          <img src="piranavan.png" alt="Piranavan S"
+            style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--bg-color); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-bottom: 1rem; object-fit: cover;">
+          <h3>Piranavan S</h3>
+          <p style="color: var(--primary); font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9rem;">Driving Behavior
+            & Alignment Monitoring</p>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem;">ID: IT22224620</p>
+          <p style="font-size: 0.875rem; color: var(--text-main); margin-bottom: 1rem; text-align: left;">
+            <strong>About My Component:</strong> Resolving the Sim-to-Real Domain gap using Late-Fusion Hybrid
+            Architecture and Explainable AI (XAI) via Kinematic Physics Layer. Designed an Ensemble AI Filter running
+            efficiently on lightweight edge CPUs like Raspberry Pi.
+          </p>
+          <a href="mailto:it22224620@my.sliit.lk" class="btn btn-sm">Contact Piranavan</a>
+        </div>
+      </div>
+    </section>
+
+    <div style="height: 2px; background: var(--border-color); margin: 4rem 0;"></div>
+
+    <section id="contact" class="scroll-section" style="padding-top: 6rem; margin-top: -6rem;">
+      <h2 class="section-title">Get In Touch</h2>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>Feel free to reach out to us regarding our research project or potential academic collaborations.</p>
+
+          <div style="margin-top: 2rem;">
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              25-26J-149@my.sliit.lk
+            </p>
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+              +94 77 123 4567
+            </p>
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Sri Lanka Institute of Information Technology<br>Malabe, Sri Lanka
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully! (Demo)');">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" placeholder="General Inquiry">
+            </div>
+            <div class="form-group">
+              <label for="message">Message Template</label>
+              <textarea id="message" rows="5" required>Hello Project Team,
+
+I am interested in learning more about your Real-Time Road Safety Monitoring research.
+
+Regards,</textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 RoadSafety AI Team. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# PDFs (research & source documents - not for version control)
+*.pdf
+
+# Helper scripts
+merge_pdfs.js
+
+# OS files
+desktop.ini
+.DS_Store
+Thumbs.db
